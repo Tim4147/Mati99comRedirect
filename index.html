@@ -1,44 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; URL=https://mati99.com/sign-up">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecting...</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    a {
+      color: #00ffcc;
+    }
+  </style>
+  <script>
+    // Extra JS redirect (sometimes more effective in triggering external browser)
+    window.onload = function() {
+      setTimeout(function () {
+        window.location.href = "https://mati99.com/sign-up";
+      }, 100);
+    };
+  </script>
 </head>
 <body>
-  <h2 id="status">Redirecting...</h2>
-  <p>If you're not redirected automatically, <a id="fallback" href="#">click here</a>.</p>
-
-  <script>
-    function getRedirectUrl() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get("url");
-    }
-
-    const url = getRedirectUrl();
-
-    if (!url) {
-      document.getElementById("status").innerText = "❌ Error: No URL specified!";
-    } else {
-      document.getElementById("fallback").href = url;
-
-      // Delay added to ensure the DOM is ready and redirection is visible
-      window.addEventListener("load", function () {
-        // Facebook or Instagram in-app browser detection
-        if (
-          navigator.userAgent.includes("FBAN") ||
-          navigator.userAgent.includes("FBAV") ||
-          navigator.userAgent.includes("Instagram")
-        ) {
-          alert("🔓 Tap the three dots ⋮ and choose 'Open in Browser' for best experience.");
-        } else {
-          // Redirect after slight delay (can be 0 if instant)
-          setTimeout(() => {
-            window.location.href = url;
-          }, 300); // 0.3 second delay
-        }
-      });
-    }
-  </script>
+  <h2>Redirecting you to MATI99...</h2>
+  <p>If you're not redirected, <a href="https://mati99.com/sign-up">click here</a>.</p>
 </body>
 </html>
