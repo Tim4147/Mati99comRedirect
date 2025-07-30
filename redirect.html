@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redirecting...</title>
+  <script>
+    function getRedirectUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("url");
+    }
+
+    const targetUrl = getRedirectUrl();
+
+    if (!targetUrl) {
+      document.write("<h2>Error: No URL specified!</h2>");
+    } else if (
+      navigator.userAgent.includes("FBAN") ||
+      navigator.userAgent.includes("FBAV") ||
+      navigator.userAgent.includes("Instagram")
+    ) {
+      alert("🔓 Tap the three dots ⋮ and choose 'Open in Browser' for best experience.");
+    } else {
+      window.location.href = targetUrl;
+    }
+  </script>
+</head>
+<body>
+  <p>If you're not redirected automatically, <a id="fallback" href="#">click here</a>.</p>
+  <script>
+    const url = getRedirectUrl();
+    if (url) document.getElementById("fallback").href = url;
+  </script>
+</body>
+</html>
